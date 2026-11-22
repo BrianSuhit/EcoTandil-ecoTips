@@ -21,8 +21,8 @@ def get_advisor() -> EcoAdvisor:
 
 if st.button("Generar tip"):
     with st.spinner("Generando un tip..."):
-        result = get_advisor().generate_tip(waste, drop_off_point)
-    if result.is_error:
-        st.error(result.text)
+        tip, is_error = get_advisor().generate_tip(waste, drop_off_point)
+    if is_error:
+        st.error(tip)
     else:
-        st.success(result.text)
+        st.success(tip)

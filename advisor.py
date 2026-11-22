@@ -1,13 +1,5 @@
-from dataclasses import dataclass
-
 from google import genai
 from google.genai.errors import APIError
-
-
-@dataclass(frozen=True)
-class TipResult:
-    text: str
-    is_error: bool = False
 
 
 class EcoAdvisor:
@@ -23,7 +15,7 @@ class EcoAdvisor:
             " siempre diciendo que lo lleven al Punto Limpio seleccionado."
         )
 
-    def generate_tip(self, residuo: str, centro: str) -> TipResult:
+    def generate_tip(self, residuo: str, centro: str) -> tuple[str, bool]:
         try:
             interaction = self.client.interactions.create(
                 model="gemini-3.5-flash-lite",
@@ -31,18 +23,18 @@ class EcoAdvisor:
                 input=f"Residuo: {residuo}. Punto Limpio seleccionado: {centro}.",
                 stream=False,
             )
-            return TipResult(interaction.output_text)
-        except APIError as e:
-            print(f"Error en EcoAdvisor: {e}")
-            return TipResult(
+            return interaction.output_text, False
+        except APIError as error:
+            print(f"Error de API en EcoTandil - ecoTips: {error}")
+            return (
                 "Gemini devolvió un error. Revisá la clave de API o intentá "
                 "nuevamente más tarde.",
-                is_error=True,
+                True,
             )
-        except Exception as e:  # noqa: BLE001
-            print(f"Error inesperado en EcoAdvisor: {e}")
-            return TipResult(
+        except Exception as error:
+            print(f"Error inesperado en EcoTandil - ecoTips: {error}")
+            return (
                 "No se pudo conectar con el asistente ambiental. Revisá tu "
                 "conexión a internet e intentá nuevamente.",
-                is_error=True,
+                True,
             )
