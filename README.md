@@ -1,14 +1,32 @@
 # EcoTips de Tandil
 
-La interfaz web llama a Gemini desde un servidor JavaScript local. La clave se
-lee de `GEMINI_API_KEY` en el servidor y no se envía al navegador.
+EcoTips es un prototipo de aplicación del microecosistema de Tandil 2050, dentro
+del Driver de Medioambiente y Sustentabilidad. Está pensado para acercar la
+separación de residuos y el uso de los Puntos Limpios de Tandil a chicos y
+chicas, con tips breves y fáciles de entender.
 
-En PowerShell, configurá la variable de entorno y ejecutá:
+## Qué permite hacer
+
+- Elegir un material reciclable.
+- Seleccionar un Punto Limpio de Tandil.
+- Generar con Gemini un tip adecuado para chicos.
+- Recordar pedir ayuda a una persona adulta cuando el residuo requiera cuidados.
+
+El prototipo actual funciona desde la consola con Python (`main.py`).
+
+## Ejecutar
+
+Requisitos: Python 3.14 o posterior, [uv](https://docs.astral.sh/uv/) y una
+clave de Gemini.
+
+En PowerShell, instalá las dependencias, configurá la clave como variable de
+entorno e iniciá la aplicación:
 
 ```powershell
+uv sync
 $env:GEMINI_API_KEY = "tu-clave-de-gemini"
-node server.js
+uv run main.py
 ```
 
-Después abrí http://127.0.0.1:3000. Opcionalmente, podés elegir el modelo con
-`GEMINI_MODEL`; por defecto se usa `gemini-3.5-flash-lite`.
+La clave se lee desde `GEMINI_API_KEY`; no la guardes en el código ni la
+compartas.
