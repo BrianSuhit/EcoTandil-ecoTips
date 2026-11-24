@@ -57,7 +57,7 @@ ecotandil-ecotips/
 ### 1. Clonar el repositorio
 
 ```bash
-git clone [https://github.com/BrianSuhit/EcoTandil-ecoTips.git](https://github.com/BrianSuhit/EcoTandil-ecoTips.git)
+git clone https://github.com/BrianSuhit/EcoTandil-ecoTips.git
 cd EcoTandil-ecoTips
 ```
 
