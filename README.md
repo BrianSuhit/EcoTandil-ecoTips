@@ -22,15 +22,15 @@ La idea original contemplaba generar imágenes, pero decidí pivotar hacia un as
 Para este prototipo (MVP) prioricé la simplicidad y la seguridad de los chicos, asumiendo conscientemente lo que ganaba y lo que resignaba en cada decisión:
 
 **Entrada por menú desplegable (en vez de campo abierto):**
--  *Pro:* Evito entradas maliciosas o preguntas fuera de tema sin tener que gastar plata ni tokens en filtros complejos de guardrails.
--  *Contra:* El chico solo puede consultar los residuos y puntos limpios que ya están cargados en la lista fija.
+-  ✅ *Pro:* Evito entradas maliciosas o preguntas fuera de tema sin tener que gastar plata ni tokens en filtros complejos de guardrails.
+-  ❌ *Contra:* El chico solo puede consultar los residuos y puntos limpios que ya están cargados en la lista fija.
 
 **Prompt enfocado en seguridad infantil:**
 -  El sistema evalúa riesgos: si el residuo es peligroso o cortante (como vidrio roto o baterías), exige la supervisión de un adulto en vez de alentar al chico a manipularlo solo.
 
 **Salida en texto simple (en vez de formato JSON):**
--  *Pro:* El mensaje sale natural, amigable y con el tono adecuado para chicos de primaria y secundaria. 
--  *Contra:* La respuesta no tiene siempre la misma cantidad exacta de renglones ni un formato rígido. Usar Structure Output en produccion con un framework de fronted mas robusto seria un paso crucial.
+-  ✅ *Pro:* El mensaje sale natural, amigable y con el tono adecuado para chicos de primaria y secundaria. 
+-  ❌ *Contra:* La respuesta no tiene siempre la misma cantidad exacta de renglones ni un formato rígido. Usar Structure Output en produccion con un framework de fronted mas robusto seria un paso crucial.
 
 ## Mejoras a futuro
 
